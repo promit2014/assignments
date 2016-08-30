@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+	<title>Java Script Assignment 2</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div >
+				<a class="navbar-brand" href="#">Finder</a>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container" id="registration_container">
+		<div class="form-group">
+			<label for="name">Name:</label>
+			<input type="text" class="form-control" id="register_name"/>
+		</div>
+		<div class="form-group">
+			<label >Gender :</label>
+			<label class="radio-inline"><input type="radio" id="register_male" value="male" name="register_gender"/>male</label>
+			<label class="radio-inline"><input type="radio" id="register_female" value="female" name="register_gender"/>female</label>
+		</div>	
+		<div class="form-group ">
+			<label for="company">company:</label>
+			<input type="text" class="form-control" id="register_company"/>
+		</div>
+		<div class="form-group">
+			<label for="email">email:</label>
+			<input type="email" class="form-control" id="register_email"/>
+		</div>
+		<div class="form-group">
+			<label for="phone">phone:</label>
+			<input type="text" class="form-control" id="register_phone"/>
+		</div>
+		<div class="form-group">
+			<label for="address">address:</label>
+			<textarea class="form-control" rows="3" id="register_address"></textarea>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-6 btn_holder">
+				<button class="btn btn-info btn-block" id="add_submit_btn">Insert</button>
+			</div>
+			
+			<div class="col-sm-6 btn_holder">
+				<button type="reset" class="btn btn-danger btn-block" id="add_cancel_btn">Cancel</button>
+			</div>
+		</div>
+		
+	</div>	
+
+	<div class="container padder" id="result_container">
+		<div class="rows">
+			<button type="reset" class="btn btn-success btn-block" id="add_window_btn">
+				Add New Details
+			</button>
+		</div>
+
+		<div class="rows table-responsive" >
+			<table class="table table-hover">
+			    <thead>
+			      	<tr>
+			        	<th>Firstname</th>
+			        	<th>gender</th>
+			        	<th>company</th>
+			        	<th>email</th>
+			        	<th>phone</th>
+			        	<th>operation</th>
+			      	</tr>
+			    </thead>
+				<!-- Row template start -->
+			    <template id="row_template">
+				      	<tr>
+				        	<td>{{name}}</td>
+				        	<td>{{gender}}</td>
+				        	<td>{{company}}</td>
+				        	<td>{{email}}</td>
+				        	<td>{{phone}}</td>
+				        	<td>
+				        		<div class="col-sm-6">
+				        			<button type="button"  class="btn btn-info btn-xs btn-block edit_record" value="{{id}}">Edit</button>
+				        		</div>
+
+				        		<div class="col-sm-6">
+				        			<button type="button" class="btn btn-danger btn-xs btn-block delete_record" value="{{id}}">Delete</button>
+				        		</div>	
+				        	</td>
+				     	</tr>
+		     	</template>
+			    <!-- row template end -->
+			    <tbody id="table_body">			     	
+			    </tbody>
+			  </table>
+			  <div id="test"></div>
+		</div>
+
+		<div class="container text-right">
+			<ul class="pagination pagination-sm">
+				<li class="previous" id="prev"><a href="#">Previous</a></li>
+				<li id="start"><a href="#">Start</a></li>
+				<li class="active hidden-xs hidden-sm" id="1_page" value="0"><a href="#">1</a></li>
+				<li class="hidden-xs hidden-sm" id="2_page" value="1"><a href="#">2</a></li>
+				<li class="hidden-xs hidden-sm" id="3_page" value="2"><a href="#">3</a></li>
+				<li class="hidden-xs hidden-sm" id="4_page" value="3"><a href="#">4</a></li>
+				<li class="hidden-xs hidden-sm" id="5_page" value="4"><a href="#">5</a></li>
+				<li id="end"><a href="#">End</a></li>
+				<li class="next" id="next"><a href="#">Next</a></li>
+			</ul>
+			
+		</div>
+	</div>
+
+
+	<!-- Modal Start -->
+	<div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+		  <!-- Modal content-->
+	      <div class="modal-content">
+		        <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 style="color:red;"><span class="glyphicon glyphicon-edit"></span> Edit</h4>
+		        </div>
+				<div class="modal-body">
+						<div class="form-group">
+							<label for="id"><span class="glyphicon glyphicon-log-in"></span> ID</label>
+							<input type="text" class="form-control" id="modal_id" disabled>
+						</div>
+						<div class="form-group">
+							<label for="name"><span class="glyphicon glyphicon-user"></span> Name</label>
+							<input type="text" class="form-control" id="modal_name" placeholder="Enter Name">
+						</div>
+						<div class="form-group">
+							<label for="gender"><span class="glyphicon glyphicon-import"></span> Gender</label>
+							<label class="radio-inline"><input type="radio" name="modal_gender" id="modal_male" value="male">male</label>
+							<label class="radio-inline"><input type="radio" name="modal_gender" id="modal_female" value="female">female</label>
+						</div>
+						<div class="form-group">
+							<label for="company"><span class="glyphicon glyphicon-briefcase"></span> Company</label>
+							<input type="text" class="form-control" id="modal_company" placeholder="company">
+						</div>
+						<div class="form-group">
+							<label for="email"><span class="glyphicon glyphicon-envelope"></span> Email</label>
+							<input type="text" class="form-control" id="modal_email" placeholder="email">
+						</div>
+						<div class="form-group">
+							<label for="phone"><span class="glyphicon glyphicon-phone"></span> Phone</label>
+							<input type="text" class="form-control" id="modal_phone" placeholder="phone">
+						</div>
+						<div class="form-group">
+							<label for="address"><span class="glyphicon glyphicon-unchecked"></span>address:</label>
+							<textarea class="form-control" rows="3" id="modal_address"></textarea>
+						</div>
+						<button class="btn btn-default btn-success btn-block" id="modal_submit"> Submit Changes</button>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-danger btn-default btn-block" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+				</div>
+		    </div>
+	    </div>
+  	</div> 
+	<!-- Modal End -->
+
+	<!-- Script declaration Start -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js" ></script>
+	<script src="myjs.js"></script>
+	<!-- Script declaration End -->
+</body>
+</html>
