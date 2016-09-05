@@ -1,0 +1,19 @@
+.padder{
+	padding-top: 30px;
+}
+
+.btn_holder{
+	padding-bottom: 5px;
+}
+
+#registration_container{
+	display: none;
+}
+
+.table_header{
+	background-color: lightblue;
+}
+
+.table_row{
+	padding-top: 10px;
+}
