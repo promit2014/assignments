@@ -3,7 +3,7 @@
 		<div class="panel panel-primary" >
 		  <div class="panel-heading">
 		  <strong>Details</strong>
-		  <a href="/#/search/{{movie}}" class="btn btn-danger btn-xs pull-right">Back</a>
+		  <a href="/#/search/{{movie}}" class="btn btn-danger btn-xs pull-right">Back To Results</a>
 		  </div>
 		  <div class="panel-body">
 				<div class="row">
@@ -78,8 +78,10 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="panel panel-primary text-center">
-							<div class="panel-heading">Likes,Dislikes</div>
-							<div class="panel-body">{{result.imdbVotes == "N/A" ? "No Votes Available" : result.imdbVotes}}</div>
+							<div class="panel-heading">
+								Like <span class="glyphicon glyphicon-thumbs-up"></span> | Dislike <span class="glyphicon glyphicon-thumbs-down"></span>
+							</div>
+							<div class="panel-body">{{result.imdbVotes == "N/A" ? "No Votes Available" : VoteStringCreator(result.imdbVotes)}}</div>
 						</div>
 					</div>
 					<div class="col-sm-4">

@@ -10,5 +10,9 @@ angular.module('OmdbSearch')
 		$scope.loading = false ;
 	});
 
+	$scope.VoteStringCreator = function(votes){
+		return votes.split(',')[0]+" | "+votes.split(',')[1];
+	}
+
 }]);
 
