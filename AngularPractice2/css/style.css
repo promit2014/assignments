@@ -1,0 +1,20 @@
+.seperator{
+	margin-bottom: 10px;
+}
+
+.form-container{
+	padding-bottom: 20px
+}
+
+#error_displayer{
+	display: none;
+}
+
+#table_container{
+	display: none;
+}
+
+.movie_thumbnail{
+	width: 200px;
+	height: 300px;
+}
