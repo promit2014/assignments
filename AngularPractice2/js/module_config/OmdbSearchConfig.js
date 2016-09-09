@@ -1,10 +1,10 @@
 angular.module('OmdbSearch').config(['$routeProvider',function($routeProvider) {
 	$routeProvider
-	.when("/",{
+	.when("/search/:title",{
 		templateUrl : "results.html",
 		controller : "searcher"
-	}).when("/details",{
+	}).when("/details/:movieID",{
 		templateUrl : "details.html",
-		controller : "searcher",
+		controller : "details"
 	});
 }]);

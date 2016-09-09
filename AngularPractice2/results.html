@@ -1,33 +1,55 @@
-<div class="container" ng-hide="error">
-	<div class="panel panel-primary" ng-repeat="result in results">
-		<div class="panel-heading">{{result.Title}}</div>
-		<div class="panel-body">
-			<table class="table table-hover">
-				<tbody>
-				  <tr>
-				    <td>Title</td>
-				    <td>{{result.Title}}</td>
-				  </tr>
-				  <tr>
-				    <td>Year</td>
-				    <td>{{result.Year}}</td>
-				  </tr>
-				  <tr>
-				    <td>imdbID</td>
-				    <td>{{result.imdbID}}</td>
-				  </tr>
-				  <tr>
-				    <td><button class="btn btn-primary" ng-click="getDetails(result.imdbID)">Read More</button></td>
-				  </tr>
-				</tbody>
-			</table>
+<div ng-hide="loading">
+	<div class="container" ng-hide="error">
+		<div class="panel panel-primary" ng-repeat="result in results">
+			<div class="panel-heading">{{result.Title}}</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-2">
+						<img class="movie_thumbnail thumbnail" ng-src="{{result.Poster}}" alt="">
+					</div>
+					<div class="col-sm-10">
+						<table class="table table-hover">
+							<tbody>
+							  <tr>
+							    <td>Title</td>
+							    <td>{{result.Title}}</td>
+							  </tr>
+							  <tr>
+							    <td>Year</td>
+							    <td>{{result.Year}}</td>
+							  </tr>
+							  <tr>
+							    <td>imdbID</td>
+							    <td>{{result.imdbID}}</td>
+							  </tr>
+							  <tr>
+							  	<td></td>
+							    <td><a class="btn btn-primary pull-right" href="#/details/{{result.imdbID}}">Read More</a></td>
+							  </tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container" ng-show="error">
+		<div class="panel panel-danger" >
+			<div class="panel-heading">
+				Error
+			</div>
+			<div class="panel-body">
+				{{errMsg}}
+			</div>
 		</div>
 	</div>
 </div>
-<div class="container" ng-show="error">
-	<div class="panel panel-danger" >
-		<div class="panel-heading">Error</div>
-		<div class="panel-body">
-			{{errMsg}}
+<div ng-show="loading">
+	<div class="container">
+		<div class="spinner">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
 		</div>
+	</div>
 </div>
