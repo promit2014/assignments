@@ -2,60 +2,60 @@
 	<div class="container">
 		<div class="panel panel-primary" >
 		  <div class="panel-heading">
-		  {{result.Title}}
+		  <strong>Details</strong>
 		  <a href="/#/search/{{movie}}" class="btn btn-danger btn-xs pull-right">Back</a>
 		  </div>
 		  <div class="panel-body">
 				<div class="row">
 					<div class="col-sm-3">
-						<img ng-src="{{result.Poster}}" alt="Poster" class="thumbnail detailsPosterThumbnail">
+						<img ng-src='{{result.Poster == "N/A" ? "images/imageNotFound.jpg" : result.Poster}}' alt="Poster" class="thumbnail detailsPosterThumbnail">
 					</div>
 					<div class="col-sm-9">
 						<table class="table table-hover">
 							<tbody>
 								<tr>
 								    <td class="text-uppercase text-danger"><strong>Rating</strong></td>
-								    <td class="text-danger"><strong>{{result.imdbRating}}</strong></td>
+								    <td class="text-danger"><strong>{{result.imdbRating == "N/A" ? "No Rating Available" : result.imdbRating}}</strong></td>
 							  	</tr>
 								<tr>
 									<td>Title</td>
-									<td>{{result.Title}}</td>
+									<td>{{result.Title == "N/A" ? "No Title Available" : result.Title}}</td>
 								</tr>
 								<tr>
 									<td>Released</td>
-									<td>{{result.Released}}</td>
+									<td>{{result.Released == "N/A" ? "No Released Available" : result.Released}}</td>
 								</tr>
 								<tr>
 									<td>Language</td>
-									<td>{{result.Language}}</td>
+									<td>{{result.Language == "N/A" ? "No Language Available" : result.Language}}</td>
 								</tr>
 								<tr>
 									<td>Actors</td>
-									<td>{{result.Actors}}</td>
+									<td>{{result.Actors == "N/A" ? "No Actors Available" : result.Actors}}</td>
 								</tr>
 								<tr>
 									<td>Director</td>
-									<td>{{result.Director}}</td>
+									<td>{{result.Director == "N/A" ? "No Director Available" : result.Director}}</td>
 								</tr>
 								<tr>
 									<td>Writer</td>
-									<td>{{result.Writer}}</td>
+									<td>{{result.Writer == "N/A" ? "No Writer Available" : result.Writer}}</td>
 								</tr>
 								<tr>
 									<td>Country</td>
-									<td>{{result.Country}}</td>
+									<td>{{result.Country == "N/A" ? "No Country Available" : result.Country}}</td>
 								</tr>
 								<tr>
 									<td>Genre</td>
-									<td>{{result.Genre}}</td>
+									<td>{{result.Genre == "N/A" ? "No Genre Available" : result.Genre}}</td>
 								</tr>
 								<tr>
-									<td>Rated</td>
-									<td>{{result.Rated}}</td>
+									<td>Certification</td>
+									<td>{{result.Rated == "N/A" ? "No Certification Available" : result.Rated}}</td>
 								</tr>
 								<tr>
 									<td>Runtime</td>
-									<td>{{result.Runtime}}</td>
+									<td>{{result.Runtime == "N/A" ? "No Runtime Available" : result.Runtime}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -65,7 +65,7 @@
 					<div class="panel panel-info" >
 						  <div class="panel-heading text-uppercase">Plot</div>
 						  <div class="panel-body">
-						  {{result.Plot}}
+						  {{result.Plot == "N/A" ? "No Plot Available" : result.Plot}}
 						  </div>
 					</div>
 				</div>
@@ -73,19 +73,19 @@
 					<div class="col-sm-4">
 						<div class="panel panel-primary text-center">
 							<div class="panel-heading">Metascore</div>
-							<div class="panel-body">{{result.Metascore}}</div>
+							<div class="panel-body">{{result.Metascore == "N/A" ? "No Metascore Available" : result.Metascore}}</div>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="panel panel-primary text-center">
 							<div class="panel-heading">Likes,Dislikes</div>
-							<div class="panel-body">{{result.imdbVotes}}</div>
+							<div class="panel-body">{{result.imdbVotes == "N/A" ? "No Votes Available" : result.imdbVotes}}</div>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="panel panel-primary text-center">
 							<div class="panel-heading">Awards</div>
-							<div class="panel-body">{{result.Awards}}</div>
+							<div class="panel-body">{{result.Awards == "N/A" ? "No Awards Available" : result.Awards}}</div>
 						</div>
 					</div>
 				</div>
@@ -94,9 +94,11 @@
 	</div>
 </div>
 <div ng-show="loading">
-	<div class="spinner">
-	  <div class="bounce1"></div>
-	  <div class="bounce2"></div>
-	  <div class="bounce3"></div>
+	<div class="cssload-container">
+	<ul class="cssload-flex-container">
+		<li>
+		<span class="cssload-loading"></span>
+		</li>
 	</div>
+	</div>	
 </div>
