@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Crud Operation using Angular</title>
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="bower_components/glyphicons/styles/glyphicons.css" />
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
+</head>
+<body ng-app="crudApp" ng-cloak>
+    <div layout="column" layout-fill  layout-padding  flex>
+	    <md-content layout-wrap>
+			<md-toolbar md-scroll-shrink md-shrink-speed-factor="0.5" layout="row" layout-align="center center">
+				<div ng-controller="sidenavController" layout-align="start start"  hide-gt-md flex-sm="30" flex-xs="30" flex-md="30">
+					<md-button ng-click="openLeftMenu()" aria-label="sidebarOpener" class="md-fab md-raised" md-ripple-size="full">
+			      		<span class="glyphicon glyphicon-menu-hamburger"></span>
+				    </md-button>
+				</div>
+				<div layout-align="center center" flex-xs flex-sm flex-md>
+					<h4>
+					  <span>Crud with Angular And Material</span>
+					</h4>
+				</div>
+			</md-toolbar>
+			<!--Note: for scrollShrink to work, the toolbar must be a sibling of a md-content element, placed before it.-->
+	    </md-content>
+	    <section layout="row" flex >
+	    	<!--Sidebar Start -->
+	    	<md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4" layout="column">
+	    		<!--Sidebar Header Start -->
+	    		<md-toolbar md-colors="{background:'purple'}">
+			        <h1 class="md-toolbar-tools" layout-align="center center">Operation Menu</h1>
+		      	</md-toolbar>
+		      	<!-- Sidebar header ends -->
+		      	<!--Sidebar content start -->
+		    	<md-content flex layout-padding>
+		    		<div layout="row" layout-align="center center" flex>
+						<md-button class="md-raised" href="#/" ng-disabled="false" aria-label="search" md-ripple-size="full" flex> <span class="glyphicon glyphicon-search"></span> List All</md-button>
+					</div>
+					<div layout="row" layout-align="center center" flex>
+						<md-button class="md-raised" href="#/search" ng-disabled="false" aria-label="search" md-ripple-size="full" flex> <span class="glyphicon glyphicon-search"></span> Search</md-button>
+					</div>
+					<div layout="row" layout-align="center center" flex>
+						<md-button class="md-raised" href="#/add" ng-disabled="false" aria-label="add" md-ripple-size="full" flex> <span class="glyphicon glyphicon-log-in"></span> Add</md-button>
+					</div>
+					<div layout="row" ng-controller="sidenavController" layout-align="center center" flex hide-gt-md>
+						<md-button class="md-raised"  ng-disabled="false" aria-label="edit" md-ripple-size="full" flex ng-click="openLeftMenu()"> Close Sidebar</md-button>
+					</div>
+		    	</md-content>
+		    	<!--Sidebar content ends -->
+		  	</md-sidenav>
+		  	<!-- Sidebar Ends -->
+		  	<!-- page content start -->
+			<md-content layout="column" flex md-colors="{background:'teal'}">
+				<div ui-view flex layout="column"></div>
+			</md-content>
+			<!-- Page content ends -->
+	    </section>
+    </div>
+</body>
+	<!-- Js Script insclusions start-->
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="bower_components/angular-messages/angular-messages.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="bower_components/angular-aria/angular-aria.js"></script>
+	<script src="bower_components/angular-material/angular-material.js"></script>
+	<script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+	<script src="js/module/module.js"></script>
+	<script src="js/config/config.js"></script>
+	<script src="/js/factories/getPageFactory.js"></script>
+	<script src="js/controller/sidenavController.js"></script>
+	<script src="js/controller/resultsController.js"></script>
+	<script src="js/controller/addController.js"></script>
+</html>

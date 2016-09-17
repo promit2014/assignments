@@ -1,0 +1,78 @@
+<md-toolbar class="md-theme-indigo">
+	<h1 class="md-toolbar-tools" layout-align="center center">Add Details</h1>
+</md-toolbar>
+<md-card layout="column" flex>
+	<md-card-content layout="column"  flex>
+		<form name="projectForm">
+			<div layout="row">
+		        <md-input-container flex>
+					<label>Name</label>
+					<input required name="Name" ng-model="project.Name">
+					<div ng-messages="projectForm.Name.$error">
+						<div ng-message="required">This is required.</div>	
+					</div>
+		        </md-input-container>
+		        <md-input-container flex>
+					<label>Company</label>
+					<input required name="company" ng-model="project.company">
+					<div ng-messages="projectForm.company.$error">
+						<div ng-message="required">This is required.</div>	
+					</div>
+		        </md-input-container>
+	      	</div>
+	      	<div layout="row">
+	         	<md-input-container class="md-block" flex>
+		        	<label>Email</label>
+			        <input required type="email" name="email" ng-model="project.email"
+			               minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
+
+			        <div ng-messages="projectForm.email.$error" role="alert">
+		          		<div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+			            	Your email must be between 10 and 100 characters long and look like an e-mail address.
+		          		</div>
+			        </div>
+		      	</md-input-container>
+	      	</div>
+	      	<div layout="row">
+	         	<md-input-container class="md-block" flex>
+		        	<label>Phone</label>
+			        <input required type="number" name="phone" ng-model="project.phone"
+			               minlength="12" maxlength="12"  />
+
+			        <div ng-messages="projectForm.phone.$error" role="alert">
+		          		<div ng-message-exp="['required', 'minlength', 'maxlength']">
+			            	Your phone number must be 13 digits long and look like +911234567890.
+		          		</div>
+			        </div>
+		      	</md-input-container>
+	         	<md-input-container class="md-block" flex>
+			        <label>Gender</label>
+			        <md-select name="gender" ng-model="project.gender" required>
+						<md-option value="male">Male</md-option>
+						<md-option value="female">Female</md-option>
+			        </md-select>
+			        <div class="errors" ng-messages="projectForm.gender.$error">
+		          		<div ng-message="required">Required</div>
+			        </div>
+		      	</md-input-container>
+	      	</div>
+	      	<div layout="row" >
+		      	<md-input-container class="md-block" flex>
+					<label>Address</label>
+					<textarea name="address" required ng-model="project.address" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+
+			        <div class="errors" ng-messages="projectForm.address.$error">
+		          		<div ng-message="required">Required</div>
+			        </div>
+		        </md-input-container>
+		    </div>
+		    <div layout="row">
+		   		<div layout="column" flex>
+		    		<md-button class="md-raised md-primary" ng-disabled="projectForm.$invalid" md-block>
+		    			Add
+		    		</md-button>
+		    	</div>
+		    </div>
+		</form>
+	</md-card-content>
+</md-card>

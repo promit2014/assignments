@@ -1,0 +1,1 @@
+angular.module('crudApp', ['ui.router','ngMaterial', 'ngMessages' , 'angularUtils.directives.dirPagination']);

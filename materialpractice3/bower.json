@@ -1,0 +1,19 @@
+{
+  "name": "materialpractice3",
+  "homepage": "https://github.com/stackroute/vagrant-xenial64-node6-mongo3.2",
+  "description": "jquery assignments 2 angular implementaion",
+  "main": "index.html",
+  "keywords": [
+    "jquery2",
+    "material"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
