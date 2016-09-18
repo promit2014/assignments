@@ -4,33 +4,33 @@
 <md-card layout="column" flex>
 	<md-card-content layout="row" layout-align="center" flex>
 		<div layout="column" flex >
-			<div class="table-responsive" flex="90">
+			<div class="table-responsive" flex flex-md="80">
 				<table class="table table-hover" flex >
 					<thead flex md-colors="{background:'indigo'}">
 						<tr >
-							<th>Name</th>
-							<th>Gender</th>
-							<th>Company</th>
-							<th>Email</th>
-							<th>Phone</th>
-							<th>Address</th>
-							<th>Operation</th>
+							<th ng-class="{'sm-font': sizesetter}">Name</th>
+							<th hide-md>Gender</th>
+							<th ng-class="{'sm-font': sizesetter}">Company</th>
+							<th ng-class="{'sm-font': sizesetter}">Email</th>
+							<th hide-md>Phone</th>
+							<th hide-md>Address</th>
+							<th ng-class="{'sm-font': sizesetter}">Operation</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr dir-paginate="result in results|itemsPerPage:itemsPerPage" total-items="total_count" current-page="current_page">
-							<td>{{result.name}}</td>
-							<td>{{result.gender}}</td>
-							<td>{{result.company}}</td>
-							<td>{{result.email}}</td>
-							<td>{{result.phone}}</td>
-							<td>{{result.address}}</td>
+							<td ng-class="{'sm-font': sizesetter}">{{result.name}}</td>
+							<td hide-md>{{result.gender}}</td>
+							<td ng-class="{'sm-font': sizesetter}">{{result.company}}</td>
+							<td ng-class="{'sm-font': sizesetter}">{{result.email}}</td>
+							<td hide-md>{{result.phone}}</td>
+							<td hide-md>{{result.address}}</td>
 							<th layout="row">
 								<md-button class="md-fab md-mini md-accent" aria-label="Use Android" href="#">
 									<span class="glyphicon glyphicon-edit"></span>
 						        </md-button>
 
-								<md-button class="md-fab md-mini md-warn" aria-label="Use Android" href="#">
+								<md-button class="md-fab md-mini md-warn" aria-label="Use Android" ng-click="deleteRecord(result)">
 									<span class="glyphicon glyphicon-remove-sign"></span>
 						        </md-button>							
 							</th>
@@ -38,7 +38,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div layout="column" layout-align="start center" flex>
+			<div layout="column" layout-align="start center" ng-class="{'sm-font': sizesetter}" >
 				<dir-pagination-controls
 			        max-size="10"
 			        direction-links="true"

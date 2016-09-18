@@ -2,18 +2,18 @@
 	<h1 class="md-toolbar-tools" layout-align="center center">Add Details</h1>
 </md-toolbar>
 <md-card layout="column" flex>
-	<md-card-content layout="column"  flex>
-		<form name="projectForm">
-			<div layout="row">
+	<md-card-content >
+		<form name="projectForm" >	
+			<div layout-gt-md="row" layout="column">
 		        <md-input-container flex>
-					<label>Name</label>
-					<input required name="Name" ng-model="project.Name">
+					<label class="md-title sm-headline">Name</label>
+					<input required name="Name" ng-model="project.name">
 					<div ng-messages="projectForm.Name.$error">
-						<div ng-message="required">This is required.</div>	
+						<div ng-message="required" class="md-title">This is required.</div>	
 					</div>
 		        </md-input-container>
 		        <md-input-container flex>
-					<label>Company</label>
+					<label class="md-title sm-headline">Company</label>
 					<input required name="company" ng-model="project.company">
 					<div ng-messages="projectForm.company.$error">
 						<div ng-message="required">This is required.</div>	
@@ -22,7 +22,7 @@
 	      	</div>
 	      	<div layout="row">
 	         	<md-input-container class="md-block" flex>
-		        	<label>Email</label>
+		        	<label class="md-title sm-headline">Email</label>
 			        <input required type="email" name="email" ng-model="project.email"
 			               minlength="10" maxlength="100" ng-pattern="/^.+@.+\..+$/" />
 
@@ -33,9 +33,9 @@
 			        </div>
 		      	</md-input-container>
 	      	</div>
-	      	<div layout="row">
+	      	<div layout-gt-md="row" layout="column">
 	         	<md-input-container class="md-block" flex>
-		        	<label>Phone</label>
+		        	<label class="md-title sm-headline">Phone</label>
 			        <input required type="number" name="phone" ng-model="project.phone"
 			               minlength="12" maxlength="12"  />
 
@@ -46,7 +46,7 @@
 			        </div>
 		      	</md-input-container>
 	         	<md-input-container class="md-block" flex>
-			        <label>Gender</label>
+			        <label class="md-title sm-headline">Gender</label>
 			        <md-select name="gender" ng-model="project.gender" required>
 						<md-option value="male">Male</md-option>
 						<md-option value="female">Female</md-option>
@@ -58,7 +58,7 @@
 	      	</div>
 	      	<div layout="row" >
 		      	<md-input-container class="md-block" flex>
-					<label>Address</label>
+					<label class="md-title sm-headline">Address</label>
 					<textarea name="address" required ng-model="project.address" md-maxlength="150" rows="2" md-select-on-focus></textarea>
 
 			        <div class="errors" ng-messages="projectForm.address.$error">
@@ -68,8 +68,8 @@
 		    </div>
 		    <div layout="row">
 		   		<div layout="column" flex>
-		    		<md-button class="md-raised md-primary" ng-disabled="projectForm.$invalid" md-block>
-		    			Add
+		    		<md-button class="md-raised md-primary" ng-disabled="projectForm.$invalid" ng-click="addData(project)" md-block>
+		    			SUBMIT
 		    		</md-button>
 		    	</div>
 		    </div>

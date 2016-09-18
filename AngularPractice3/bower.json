@@ -1,0 +1,26 @@
+{
+  "name": "angularpractice3",
+  "homepage": "https://github.com/promit2014/assignments",
+  "authors": [
+    "promit2014 <promit.2014@gmail.com>"
+  ],
+  "description": "First implementation of angular material and pagination of omdb api",
+  "main": "index.html",
+  "keywords": [
+    "omdb",
+    "movie",
+    "angular",
+    "agular-material",
+    "pagination",
+    "validation"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

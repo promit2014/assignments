@@ -1,5 +1,5 @@
 angular.module('crudApp').
-config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider) {
+config(['$stateProvider','$urlRouterProvider', '$mdThemingProvider' ,function($stateProvider,$urlRouterProvider,$mdThemingProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
     .state('home', {
@@ -20,4 +20,6 @@ config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouter
       url: '/edit',
       template: 'edit.html'
     });
+
+    $mdThemingProvider.theme('success-toast')
 }]);
