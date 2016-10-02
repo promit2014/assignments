@@ -1,0 +1,17 @@
+{
+  "name": "samarthwireframe1",
+  "homepage": "https://github.com/promit2014/assignments",
+  "authors": [
+    "promit2014 <promit.2014@gmail.com>"
+  ],
+  "description": "wireframe for samarth v1",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

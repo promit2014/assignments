@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Samarth Skill Profile Home Page V1</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
+	<link rel="stylesheet" href="bower_components/glyphicons/styles/glyphicons.css" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<div ng-app="samarth-skill-profile" ng-cloak>
+		<div ng-controller="skill-home-page-Controller">
+			<!-- Toolbar Header Start -->
+			<md-toolbar class="md-hue-2">
+		      	<div class="md-toolbar-tools">
+			        <h2>
+		          		<span>Samarth Skill Profile</span>
+			        </h2>
+			        <span flex></span>
+		         		<!-- Signout menu start -->
+						<md-menu>
+				      		 <md-button class="md-primary" aria-label="Favorite" ng-click="openMenu($mdOpenMenu, $event)" ng-style="{color:'white'}">
+				      		 	<img ng-src="images/toolbar-profile-placeholder.png" class="md-avatar toolbar-avatar"/>
+				      			Test User 
+				      			<span class="glyphicon glyphicon-chevron-down"></span>
+			      			</md-button>
+				      		<md-menu-content width="4">
+						        <md-menu-item >
+					          		<md-button >
+					          			Profile
+					          		</md-button>
+						        </md-menu-item>
+						        <md-menu-divider></md-menu-divider>
+						        <md-menu-item>
+					          		<md-button ">
+					            		SignOut
+					          		</md-button>
+						        </md-menu-item>
+				      		</md-menu-content>
+					    </md-menu>
+		         		<!-- Signout menu ends -->
+		      	</div>
+		    </md-toolbar>
+			<!-- Toolbar Header Ends -->
+		</div>		
+	</div>
+</body>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/pouchdb/dist/pouchdb.js"></script>
+<script src="js/modules/samarth-skill-profile.js"></script>
+<script src="js/controllers/skill-home-page-Controller.js"></script>
+</html>
